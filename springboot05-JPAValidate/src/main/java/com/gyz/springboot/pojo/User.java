@@ -1,6 +1,7 @@
 package com.gyz.springboot.pojo;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "t_user")
@@ -16,18 +17,24 @@ public class User {
      * 姓名
      */
     @Column(name = "t_name")
+    @NotBlank(message = "姓名不能为空")
+    @Size(min = 2,max = 8,message = "姓名长度最短2，最长8")
     private String name;
 
     /**
      * 年龄
      */
     @Column(name = "t_age")
+    @NotNull(message = "年龄不能为空")
+    @Max(value = 200,message = "年龄最大200岁")
+    @Min(value = 0,message = "年龄最小0岁")
     private Integer age;
 
     /**
      * 生日
      */
     @Column(name = "t_birthday")
+    @NotEmpty(message = "生日不能为空")
     private String birthday;
 
     public Long getId() {
