@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/springboot02-config/pom.xml" />
         <option value="$PROJECT_DIR$/springboot04-MVC/pom.xml" />
         <option value="$PROJECT_DIR$/springboot05-JPAValidate/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot06-PageSort/pom.xml" />
       </list>
     </option>
   </component>
