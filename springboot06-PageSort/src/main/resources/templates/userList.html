@@ -40,10 +40,13 @@
                 <tfoot>
                     <tr>
                         <td>
-                            第<span th:text="${page}">0</span>页
+                            第<span th:text="${pageNumber}+1">0</span>页
                         </td>
                         <td>
-                            <a class="btn btn-primary" th:href="@{/users/{page}(page=)}">下一页</a>
+                            <a class="btn btn-primary" th:href="@{/users?pageNumber={pageNumber}(pageNumber=(${pageNumber}-1)<0?0:(${pageNumber}-1))}">上一页</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{/users?pageNumber={pageNumber}(pageNumber=${pageNumber}+1)}">下一页</a>
                         </td>
                         <td>
                             共<span th:text="${total}">0</span>名用户

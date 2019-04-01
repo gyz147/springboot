@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,10 +23,10 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String findAll(Pageable pageable, ModelMap map) {
-        Page<User> page = userService.findAll(pageable);
-        map.addAttribute("userList",page.getContent());
-        map.addAttribute("total",page.getTotalElements());
-        map.addAttribute("page",page.getPageable().getPageNumber()+1);
+        Page<User> page = page = userService.findAll(pageable);
+        map.addAttribute("userList", page.getContent());
+        map.addAttribute("total", page.getTotalElements());
+        map.addAttribute("pageNumber", page.getPageable().getPageNumber());
         return "userList";
     }
 
@@ -59,6 +60,44 @@ public class UserController {
 
         userService.insertByUser(user);
 
+        return "redirect:/users/";
+    }
+
+    /**
+     * 显示需要更新用户表单
+     * 处理 "/users/{id}" 的 GET 请求，通过 URL 中的 id 值获取 User 信息
+     * URL 中的 id ，通过 @PathVariable 绑定参数
+     */
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public String getUser(ModelMap map, @PathVariable Long id) {
+        map.addAttribute("user", userService.findById(id));
+        map.addAttribute("action", "update");
+        return "userForm";
+    }
+
+    /**
+     * 处理 "/users/{id}" 的 PUT 请求，用来更新 User 信息
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String putUser(ModelMap map,
+                          @ModelAttribute @Valid User user,
+                          BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            map.addAttribute("action", "update");
+            return "userForm";
+        }
+
+        userService.updateByUser(user);
+        return "redirect:/users/";
+    }
+
+    /**
+     * 处理 "/users/{id}" 的 GET 请求，用来删除 User 信息
+     */
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteUser(@PathVariable Long id) {
+        userService.deleteById(id);
         return "redirect:/users/";
     }
 }

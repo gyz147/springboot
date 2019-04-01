@@ -6,5 +6,8 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserService {
     public Page<User> findAll(Pageable pageable);
-    User insertByUser(User user);
+    public User insertByUser(User user);
+    public User findById(Long id);
+    public User updateByUser(User user);
+    public void deleteById(Long id);
 }
