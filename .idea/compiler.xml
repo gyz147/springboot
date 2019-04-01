@@ -10,7 +10,7 @@
         <module name="springboot01-HelloWorld" />
         <module name="springboot02-config" />
         <module name="springboot03-Mybatis" />
-        <module name="springboot04-MVC" />
+        <module name="springboot04-MVCandThymeleaf" />
         <module name="springboot05-JPAValidate" />
         <module name="springboot06-PageSort" />
       </profile>
@@ -25,7 +25,7 @@
       <module name="springboot02-config" options="-parameters" />
       <module name="springboot03-Mybatis" options="-parameters" />
       <module name="springboot03-Mybatiss" options="-parameters" />
-      <module name="springboot04-MVC" options="-parameters" />
+      <module name="springboot04-MVCandThymeleaf" options="-parameters" />
       <module name="springboot05-JPAValidate" options="-parameters" />
       <module name="springboot06-PageSort" options="-parameters" />
     </option>
