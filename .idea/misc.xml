@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/springboot04-MVC/pom.xml" />
         <option value="$PROJECT_DIR$/springboot05-JPAValidate/pom.xml" />
         <option value="$PROJECT_DIR$/springboot06-PageSort/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot07-MyBatisRedis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot04-MVCandThymeleaf/pom.xml" />
       </list>
     </option>
   </component>

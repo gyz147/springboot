@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+        <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/css/default.css}" rel="stylesheet"/>
+        <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+        <meta charset="UTF-8"/>
+        <title>城市列表</title>
+    </head>
+
+    <body>
+
+        <div class="contentDiv">
+
+            <h5>Spring Boot Mybatis和Redis案例</h5>
+
+            <table class="table table-hover table-condensed">
+                <legend>
+                    <strong>城市列表</strong>
+                </legend>
+                <thead>
+                    <tr>
+                        <th class="hide-icon">id</th>
+                        <th>城市名称</th>
+                        <th>城市描述</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="city : ${cityList}">
+                        <th scope="row" th:text="${city.id}"></th>
+                        <td><a th:href="@{/city/query/{id}(id=${city.id})}" th:text="${city.cityName}"></a></td>
+                        <td th:text="${city.desc}"></td>
+                        <td><a class="btn btn-danger" th:href="@{/city/delete/{id}(id=${city.id})}">删除</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div><a class="btn btn-primary" href="/city/create" role="button">添加城市</a></div>
+        </div>
+
+    </body>
+</html>
