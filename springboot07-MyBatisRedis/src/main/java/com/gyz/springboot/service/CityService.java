@@ -10,5 +10,7 @@ import java.util.List;
 public interface CityService {
     public List<City> findAll();
     public City findById(Long id);
-    public void deleteById(Long id);
+    public int deleteById(Long id);
+    public int addCity(City city);
+    public int updateCity(City city);
 }

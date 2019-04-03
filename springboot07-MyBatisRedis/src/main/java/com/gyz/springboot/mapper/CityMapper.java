@@ -39,5 +39,24 @@ public interface CityMapper {
      * @param id
      */
     @Delete("delete from t_city where id = #{id}")
-    public void deleteById(@Param(value = "id") Long id);
+    public int deleteById(@Param(value = "id") Long id);
+
+
+    /**
+     * 添加城市
+     *
+     * @param city
+     * @return
+     */
+    @Insert("insert into t_city(city_name,description)values(#{cityName},#{desc})")
+    public int addCity(City city);
+
+    /**
+     * 通过id更新城市
+     *
+     * @param city
+     * @return
+     */
+    @Update("update t_city set city_name = #{cityName},description = #{desc} where id = #{id}")
+    public int updateCity(City city);
 }
