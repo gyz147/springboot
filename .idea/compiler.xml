@@ -14,6 +14,7 @@
         <module name="springboot05-JPAValidate" />
         <module name="springboot06-PageSort" />
         <module name="springboot07-MyBatisRedis" />
+        <module name="springboot08-Elasticsearch" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +31,7 @@
       <module name="springboot05-JPAValidate" options="-parameters" />
       <module name="springboot06-PageSort" options="-parameters" />
       <module name="springboot07-MyBatisRedis" options="-parameters" />
+      <module name="springboot08-Elasticsearch" options="-parameters" />
     </option>
   </component>
 </project>
