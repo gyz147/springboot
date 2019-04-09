@@ -15,6 +15,8 @@
         <module name="springboot06-PageSort" />
         <module name="springboot07-MyBatisRedis" />
         <module name="springboot08-Elasticsearch" />
+        <module name="springboot09-dubbo-client" />
+        <module name="springboot09-dubbo-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,6 +34,8 @@
       <module name="springboot06-PageSort" options="-parameters" />
       <module name="springboot07-MyBatisRedis" options="-parameters" />
       <module name="springboot08-Elasticsearch" options="-parameters" />
+      <module name="springboot09-dubbo-client" options="" />
+      <module name="springboot09-dubbo-server" options="" />
     </option>
   </component>
 </project>
